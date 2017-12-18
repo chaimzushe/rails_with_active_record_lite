@@ -1,4 +1,4 @@
-rrequire 'erb'
+require 'erb'
 
 class ShowExceptions
   attr_reader :app
@@ -20,7 +20,8 @@ class ShowExceptions
   private
   def render_exception(e)
     dir_path = File.dirname(__FILE__)
-    template_fname = File.join(dir_path, "templates", "rescue.html.erb")
+    template_fname = File.join(dir_path, "template", "rescue.html.erb")
+
     template = File.read(template_fname)
     body = ERB.new(template).result(binding)
   end

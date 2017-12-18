@@ -13,6 +13,7 @@ class ControllerBase
     @params = route_params.merge(req.params)
     @req = req
     @res = res
+    @@protect_from_forgery ||= false
   end
 
   # Helper method to alias
@@ -51,7 +52,9 @@ class ControllerBase
   # pass the rendered html to render_content
   def render(template_name)
     controller_name = self.class.to_s.underscore
-    view = File.read("views/#{controller_name}/#{template_name}.html.erb")
+    debugger
+    view = File.read("././99Cats/views/#{controller_name}/#{template_name}.html.erb")
+    debugger
     erb_view = ERB.new(view).result(binding)
     render_content(erb_view, 'text/html')
   end
