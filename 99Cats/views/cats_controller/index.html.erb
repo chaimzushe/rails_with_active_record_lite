@@ -1,35 +1,91 @@
 <head>
   <style>
+  body{
+    font-family: sans-serif;
+  }
+  h1{
+    text-align: center;
+  }
   .all-cats{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button{
+    background: lightblue;
+    color: yellow;
+    height: 50px;
+    width: 200px;
+    text-decoration: none;
+    border-radius: 10px;
+
   }
   .cat{
     color: gray;
-    height: 100px;
-    width: 33.33%;
+    width: 200px;
     box-sizing: border-box;
-    border: 1px solid red;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  li{
+    padding: 5px;
+    margin: 0;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    border: 1px solid gray;
+    margin: 10px;
+  }
+
+  .cat-img{
+    width: 200px;
+    height: 200px;
+    background-image: url('/cat.jpeg');
+  }
+
+  a{
+    display: inline;
+  }
+
+  .btn-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+
+
   </style>
 </head>
 
 <body>
-
+<% img_url = 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb'%>
   <h1> all the cats!</h1>
 <ul class='all-cats'>
+
   <% $cats.each do |cat| %>
-    <p class="cat"> <%= cat.name %> <p>
-    <a href='<%="/cats/#{cat.id}"%>'> View cat <a>
-
+  <li>
+    <p class="cat"> My name is: <%= cat.name %> </p>
+      <img class="cat-img" src='<%=img_url%>'
+       alt="A beauty of a cat!"/>
+     </br>
+    <a href='<%="/cats/#{cat.id}"%>'> View cat </a>
+  </li>
   <% end%>
-  <ul>
 
-      <p> <a href='<%="/cats/new"%>'> Create new cat <a> <p>
+</ul>
+<div class="btn-wrapper">
+  <button> <a href='<%="/cats/new"%>'> Create new cat <a> </button>
+</div>
 </body>

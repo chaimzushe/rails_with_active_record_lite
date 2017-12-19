@@ -27,7 +27,7 @@ class CatsController < ControllerBase
       new_cat.save
       redirect_to "/cats"
     else
-      flash[:errors] = ["invalid cat created"]
+      flash[:errors] = new_cat.errors
       render :new
     end
   end

@@ -2,6 +2,7 @@ require 'rack'
 require_relative 'router/lib/router.rb'
 require_relative 'router/lib/controller_base.rb'
 require_relative 'router/lib/show_exceptions.rb'
+require_relative 'router/lib/static.rb'
 require_relative '99Cats/controllers/cat_controller.rb'
 
 
@@ -25,6 +26,7 @@ end
 
 app = Rack::Builder.new do
   use ShowExceptions
+  use Static
   run app
 end.to_app
 
