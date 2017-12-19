@@ -1,21 +1,35 @@
 <head>
   <style>
+  .all-cats{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   .cat{
     color: gray;
     height: 100px;
-    width: 100px;
+    width: 33.33%;
+    box-sizing: border-box;
     border: 1px solid red;
-    display: inline-block;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
   </style>
 </head>
 
 <body>
 
-  <h1> this is a list of all the cats</h1>
-
+  <h1> all the cats!</h1>
+<ul class='all-cats'>
   <% $cats.each do |cat| %>
     <p class="cat"> <%= cat.name %> <p>
-    <br>
+    <a href='<%="/cats/#{cat.id}"%>'> View cat <a>
+
   <% end%>
+  <ul>
+
+      <p> <a href='<%="/cats/new"%>'> Create new cat <a> <p>
 </body>

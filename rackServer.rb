@@ -10,7 +10,9 @@ require_relative '99Cats/controllers/cat_controller.rb'
 router = Router.new
 router.draw do
   get Regexp.new("^/cats$"), CatsController, :index
-  get Regexp.new("^/cats/(?<cat_id>\\d+)$"), CatsController, :show
+  get Regexp.new("^/cats/(?<id>\\d+)$"), CatsController, :show
+  get Regexp.new("^/cats/new$"), CatsController, :new
+  post Regexp.new("^/cats/create$"), CatsController, :create
 end
 
 
