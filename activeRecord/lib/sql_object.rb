@@ -70,6 +70,7 @@ class SQLObject
     params.each do |attr_name, value|
       attr_name = attr_name.to_sym
       raise "unknown attribute '#{attr_name}'" unless self.class.columns.include?(attr_name)
+      self.class.finalize!
       self.send("#{attr_name}=", value)
     end
   end

@@ -1,1 +1,21 @@
-<h1> All the cats. Coming soon... </h1>
+<head>
+  <style>
+  .cat{
+    color: gray;
+    height: 100px;
+    width: 100px;
+    border: 1px solid red;
+    display: inline-block;
+  }
+  </style>
+</head>
+
+<body>
+
+  <h1> this is a list of all the cats</h1>
+
+  <% $cats.each do |cat| %>
+    <p class="cat"> <%= cat.name %> <p>
+    <br>
+  <% end%>
+</body>

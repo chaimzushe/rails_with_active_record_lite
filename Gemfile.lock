@@ -14,6 +14,7 @@ GEM
     puma (3.11.0)
     rack (2.0.3)
     require_all (1.4.0)
+    sqlite3 (1.3.13)
     thread_safe (0.3.6)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
@@ -27,6 +28,7 @@ DEPENDENCIES
   puma
   rack
   require_all
+  sqlite3
 
 BUNDLED WITH
    1.16.0.pre.2
