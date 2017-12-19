@@ -19,6 +19,7 @@ class ShowExceptions
 
   private
   def render_exception(e)
+    debugger
     dir_path = File.dirname(__FILE__)
     template_fname = File.join(dir_path, "template", "rescue.html.erb")
 
@@ -53,6 +54,7 @@ class ShowExceptions
   end
 
   def extract_source(file)
+
     source_file = File.open(file, 'r')
     source_file.readlines
   end

@@ -8,7 +8,6 @@ require_relative './cat.rb'
 class CatsController < ControllerBase
   def index
     $cats = Cat.all
-    debugger
     render :index
   end
 
@@ -23,7 +22,13 @@ class CatsController < ControllerBase
 
   def create
     new_cat = Cat.new(params["cat"])
-    new_cat.save
-    redirect_to "/cats"
+
+    if !new_cat.invalid_name?
+      new_cat.save
+      redirect_to "/cats"
+    else
+      flash[:errors] = ["invalid cat created"]
+      render :new
+    end
   end
 end
