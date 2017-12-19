@@ -20,7 +20,7 @@
     width: 200px;
     text-decoration: none;
     border-radius: 10px;
-
+    font-size: 16px;
   }
   .cat{
     color: gray;
@@ -52,7 +52,9 @@
   }
 
   a{
+    color: inherit;
     display: inline;
+
   }
 
   .btn-wrapper{
@@ -70,14 +72,14 @@
 </head>
 
 <body>
-<% img_url = 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb'%>
+<% $img_url = 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb'%>
   <h1> all the cats!</h1>
 <ul class='all-cats'>
 
   <% $cats.each do |cat| %>
   <li>
     <p class="cat"> My name is: <%= cat.name %> </p>
-      <img class="cat-img" src='<%=img_url%>'
+      <img class="cat-img" src='<%=$img_url%>'
        alt="A beauty of a cat!"/>
      </br>
     <a href='<%="/cats/#{cat.id}"%>'> View cat </a>
