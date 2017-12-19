@@ -58,7 +58,7 @@ class Cat  < SQLObject
 
 end
 ```
-> for more information on the active record part of this project please read the read me in the active  > record directory. 
+> for more information on the active record part of this project please read the read me in the active   record directory. 
 
  ### instance methods
  The following instance methods are available within controllers:
