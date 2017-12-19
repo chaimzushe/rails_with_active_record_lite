@@ -1,0 +1,15 @@
+<h1>Edit cat!</h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+
+<form action="<%="/cats/#{$edit_cat.id}/update"%>" method="POST">
+  <label>Name
+    <input type="text" name="cat[name]" value="<%=$edit_cat.name%>">
+  </label>
+
+  <input type="submit" value="Edit cat!">
+</form>

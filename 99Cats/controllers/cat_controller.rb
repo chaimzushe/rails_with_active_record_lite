@@ -31,4 +31,23 @@ class CatsController < ControllerBase
       render :new
     end
   end
+
+  def edit
+    $edit_cat = Cat.find(params["id"])
+    render :edit
+  end
+
+  def update
+    $edit_cat.name = params['cat']['name']  
+    debugger
+    if !$edit_cat.invalid_name?
+      $edit_cat.save
+      redirect_to "/cats/#{$edit_cat.id}"
+    else
+      flash[:errors] = new_cat.errors
+      render :edit
+    end
+  end
+
+
 end

@@ -1,4 +1,4 @@
-<%  %>
+<h1>Add New cat!</h1>
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
     <%= error %>
@@ -11,5 +11,5 @@
     <input type="text" name="cat[name]">
   </label>
 
-  <input type="submit">
+  <input type="submit" value="Create cat!">
 </form>

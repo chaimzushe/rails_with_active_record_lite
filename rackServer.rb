@@ -2,7 +2,6 @@ require 'rack'
 require_relative 'router/lib/router.rb'
 require_relative 'router/lib/controller_base.rb'
 require_relative 'router/lib/show_exceptions.rb'
-require_relative 'router/lib/static.rb'
 require_relative '99Cats/controllers/cat_controller.rb'
 
 
@@ -11,9 +10,12 @@ require_relative '99Cats/controllers/cat_controller.rb'
 router = Router.new
 router.draw do
   get Regexp.new("^/cats$"), CatsController, :index
+  get Regexp.new("^/$"), CatsController, :index
   get Regexp.new("^/cats/(?<id>\\d+)$"), CatsController, :show
   get Regexp.new("^/cats/new$"), CatsController, :new
   post Regexp.new("^/cats/create$"), CatsController, :create
+  get Regexp.new("^/cats/(?<id>\\d+)/edit$"), CatsController, :edit
+  post Regexp.new("^/cats/(?<id>\\d+)/update$"), CatsController, :update
 end
 
 
@@ -26,7 +28,6 @@ end
 
 app = Rack::Builder.new do
   use ShowExceptions
-  use Static
   run app
 end.to_app
 
