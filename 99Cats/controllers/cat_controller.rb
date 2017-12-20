@@ -38,7 +38,7 @@ class CatsController < ControllerBase
   end
 
   def update
-    $edit_cat.name = params['cat']['name']  
+    $edit_cat.name = params['cat']['name']
 
     if !$edit_cat.invalid_name?
       $edit_cat.save
@@ -47,6 +47,12 @@ class CatsController < ControllerBase
       flash[:errors] = new_cat.errors
       render :edit
     end
+  end
+
+  def destroy
+    cat = Cat.find(params["id"])
+    flash[:errors] = ["Sorry delete not yet implemented"]
+    render :show
   end
 
 

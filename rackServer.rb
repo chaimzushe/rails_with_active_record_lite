@@ -16,6 +16,7 @@ router.draw do
   post Regexp.new("^/cats/create$"), CatsController, :create
   get Regexp.new("^/cats/(?<id>\\d+)/edit$"), CatsController, :edit
   post Regexp.new("^/cats/(?<id>\\d+)/update$"), CatsController, :update
+  get Regexp.new("^/cats/(?<id>\\d+)/delete$"), CatsController, :destroy
 end
 
 

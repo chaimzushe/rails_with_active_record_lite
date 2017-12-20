@@ -30,6 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   button{
@@ -53,14 +54,22 @@
   }
   </style>
 </head>
-`
+
 <body>
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
 <% $img_url = 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb'%>
 
   <li>
     <h3 class='show-cat'>You are viewing: <%= $show_cat.name %> <h3>
     <img class="cat-img" src='<%=$img_url%>'>
     <div class="btn-wrapper">
-      <button> <a href='<%="/cats/#{$show_cat.id}/edit"%>'> edit cat <a> </button>
+      <button> <a href='<%="/cats/#{$show_cat.id}/edit"%>'> edit cat <a></button>
+      <button> <a href='<%="/cats/#{$show_cat.id}/delete"%>'>Delete</a></button>
     </div>
+
   </li>
