@@ -39,7 +39,7 @@ class CatsController < ControllerBase
 
   def update
     $edit_cat.name = params['cat']['name']  
-    debugger
+
     if !$edit_cat.invalid_name?
       $edit_cat.save
       redirect_to "/cats/#{$edit_cat.id}"
